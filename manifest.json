@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "ChatRail",
+  "version": "1.0.0",
+  "description": "在 ChatGPT 对话正文左侧放一条极细轨道：一条短横线 = 一次提问，悬停看问题，点击跳到那一次提问。",
+  "minimum_chrome_version": "110",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "ChatRail",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": [
+        "src/content/adapter.js",
+        "src/content/rail.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "commands": {
+    "toggle-rail": {
+      "suggested_key": { "default": "Ctrl+Shift+Y" },
+      "description": "显示 / 隐藏 ChatRail"
+    }
+  }
+}

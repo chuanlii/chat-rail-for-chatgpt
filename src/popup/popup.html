@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>ChatRail</title>
+  </head>
+  <body>
+    <header>
+      <span class="marks" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i></span>
+      ChatRail
+    </header>
+
+    <label class="row">
+      <span>启用</span>
+      <input type="checkbox" id="enabled" class="switch" />
+    </label>
+
+    <label class="row">
+      <span>轨道位置</span>
+      <select id="side">
+        <option value="auto">自动</option>
+        <option value="left">对话左侧</option>
+        <option value="right">对话右侧</option>
+      </select>
+    </label>
+
+    <label class="row">
+      <span>浮层方向</span>
+      <select id="tipSide">
+        <option value="auto">自动</option>
+        <option value="left">向左展开</option>
+        <option value="right">向右展开</option>
+      </select>
+    </label>
+
+    <label class="row">
+      <span>距正文</span>
+      <input type="range" id="offset" min="4" max="64" step="2" />
+      <b id="offsetVal">8</b>
+    </label>
+
+    <footer>
+      一条短横线 = 一次提问，悬停看内容，点击跳转。<br />
+      快捷键 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd> 显示/隐藏。
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
